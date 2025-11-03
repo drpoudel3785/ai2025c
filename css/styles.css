@@ -5,7 +5,7 @@
 }
 /* ID SELECTOR*/
 #container{
-    width:1280px;
+    width:1320px;
     min-height:500px;
     margin:auto auto;
     background-color:aliceblue;
@@ -54,4 +54,24 @@
     color:#ffffff;
     font-size:20px;
     padding:5px;
+}
+
+#topmenu{
+    width:100%;
+    min-height:50px;
+    background-color: black;
+    border: 1px solid #ffffff;
+    border-radius:0px 0px 25px 25px;
+}
+
+#topmenu ul{
+    list-style-type: none;
+}
+
+#topmenu ul li{
+    color:#ffffff;
+    display: inline-block;
+    padding:5px;
+    margin-top:8px;
+    margin-left:20px;
 }
