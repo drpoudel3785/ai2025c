@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    {% block head %}
+    {% endblock %}
+    <link href="/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-xxl-12">
+                <a href="{{url_for('index')}}">Home</a> | 
+                <a href="{{url_for('about')}}">About</a> |
+                <a href="{{url_for('contact')}}">Contact</a> 
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xxl-12">
+                <img src="/images/banner.jpg" class="img-fluid">
+            </div>
+        </div>
+        <div class="row">
+            <div clss="col-xxl-12">
+<hr>
+{% block main %}
+{% endblock %}
+
+</div>
+</div>
+<hr>
+
+<div class="row">
+    <div class="col-xxl-12">
+        &copy; 2025, myhotel.com, All Right Reserved.
+    </div>
+</div>
+
+
+
+</div>
+</body>
+</html>

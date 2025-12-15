@@ -1,2 +1,4 @@
 links.txt
 template.html
+*.log
+temp/

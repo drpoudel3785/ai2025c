@@ -1,5 +1,0 @@
-https://dev.mysql.com/downloads/workbench/
-
-https://dev.mysql.com/downloads/windows/
-
-https://dev.mysql.com/downloads/windows/
