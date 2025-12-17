@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{%block head %}
+<title>User Login</title>
+<meta name="keywords" content="Login hotel booking, myhotel booking, uk hotels" >
+<meta name="description" content="Login up for booking sytem provides hasslefree booking for any customer for uk">
+{% endblock %}
+
+{%block main %}
+    <h1>User Login</h1>
+   <form method="POST">
+    Username <input type="text" name="username" placeholder="Username" required/><br>
+    Password <input type="password" name="password" placeholder="Password" required/><br>
+     <input type="submit" name="submit" value="Submit" />
+   </form>
+{% endblock %}
