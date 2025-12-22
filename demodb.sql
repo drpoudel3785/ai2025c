@@ -51,7 +51,7 @@ studentid INT PRIMARY KEY AUTO_INCREMENT,
 firstname VARCHAR(50) NOT NULL,
 lastname VARCHAR(50) NOT NULL,
 dob date NULL,
-email VARCHAR(50) NULL UNIQUE,
+email VARCHAR(50) NULL UNIQUE,users
 phone VARCHAR(10) NOT NULL UNIQUE,
 programid INT NOT NULL,
 CONSTRAINT fk_programid FOREIGN KEY (programid) REFERENCES program(programid)
@@ -78,4 +78,8 @@ SELECT * from users;
 
 select * from department;
 #selecting all departmetn with asc by hod
-SELECT * FROM department ORDER by hod ASC
+SELECT * FROM department ORDER by hod ASC;
+
+
+
+use ai2025c;
