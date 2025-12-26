@@ -176,5 +176,59 @@ def activate(token):
 #       #return "Data Successfully Insterted"
 #       return redirect(url_for('login'))
 
+#CRUD
+@app.route('/admin/add_user', methods=['GET', 'POST'])
+def add_user():
+    if 'loggedin' not in session or session['role'] != 'admin':
+        return redirect(url_for('login'))
+
+    if request.method == 'POST':
+        username = request.form['username']
+        email = request.form['email']
+        role = request.form['role']
+        password = generate_password_hash(request.form['password'])
+        status=1
+
+        cursor = db.cursor()
+        cursor.execute(
+            "INSERT INTO users (username, email, password, role, status) VALUES (%s, %s, %s, %s, %s)",
+            (username, email, password, role, status)
+        )
+        db.commit()
+
+        return redirect(url_for('admin_dashboard'))
+
+    return render_template('admin/add_user.html')
+@app.route('/admin/edit_user/<int:id>', methods=['GET', 'POST'])
+def edit_user(id):
+    if 'loggedin' not in session or session['role'] != 'admin':
+        return redirect(url_for('login'))
+
+    cursor = db.cursor(dictionary=True)
+
+    if request.method == 'POST':
+        username = request.form['username']
+        email = request.form['email']
+        role = request.form['role']
+        status = request.form['status']
+
+        cursor.execute(
+            "UPDATE users SET username=%s, email=%s, role=%s, status=%s WHERE id=%s",
+            (username, email, role, status, id)
+        )
+        db.commit()
+        return redirect(url_for('admin/admin_dashboard'))
+
+    cursor.execute("SELECT * FROM users WHERE id=%s", (id,))
+    user = cursor.fetchone()
+    return render_template('admin/edit_user.html', user=user)
+@app.route('/admin/delete_user/<int:id>')
+def delete_user(id):
+    if 'loggedin' not in session or session['role'] != 'admin':
+        return redirect(url_for('login'))
+
+    cursor = db.cursor()
+    cursor.execute("DELETE FROM users WHERE id=%s", (id,))
+    db.commit()
 if __name__ == '__main__':
     app.run (host="127.0.0.1", port=5000, debug=True)
